@@ -6,7 +6,7 @@ import styled from '@emotion/styled'
 import facepaint from 'facepaint'
 
 export const DefaultPaddingX = '1rem'
-export const DefaultPaddingY = 0
+export const DefaultPaddingY = '0.5rem'
 export const BreakPoints = ['600px', '900px', '1200px', '1800px']
 
 export const breakpoints = {
