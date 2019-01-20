@@ -1,9 +1,13 @@
-// import React from 'react'
+import React from 'react'
 
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
 import facepaint from 'facepaint'
+
+export const pxToRem = (size, baseSize) => {
+  return `${size / baseSize}rem`
+}
 
 export const DefaultPaddingX = '1rem'
 export const DefaultPaddingY = 0
@@ -48,6 +52,8 @@ export const ContainerBreakPoints = props =>
 
 export const Section = styled.section`
   padding: 2rem 0;
+  ${props => props.background && `background: ${props.background};`}
+  ${props => props.textAlign && `text-align: ${props.textAlign};`}
 `
 export const Columns = styled.div`
   display: flex;
@@ -76,4 +82,36 @@ export const Hero = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  min-height: ${props => (props.height ? props.height : 100)}vh;
 `
+
+export const ScrollArrow = () => {
+  return (
+    <button
+      onClick={() => {
+        window.scrollTo({
+          top: window.innerHeight - 50,
+          behavior: 'smooth',
+        })
+      }}
+      aria-label="scroll down"
+      css={css`
+        display: block;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        z-index: 2;
+        bottom: 30px;
+        transform: rotate(45deg);
+        cursor: pointer;
+        border: solid black;
+        border-width: 0 2px 2px 0;
+        background: transparent;
+        transition: 0.2s;
+        &:hover {
+          transform: translateY(5px) rotate(45deg);
+        }
+      `}
+    />
+  )
+}
