@@ -23,7 +23,6 @@ class GatsbyImageBackground extends React.Component {
   componentDidMount() {}
 
   render() {
-    console.log(this.props)
     return (
       <this.props.component
         {...this.props.componentProps}

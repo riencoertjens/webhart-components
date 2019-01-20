@@ -90,7 +90,7 @@ export const ScrollArrow = () => {
     <button
       onClick={() => {
         window.scrollTo({
-          top: window.innerHeight - 50,
+          top: window.innerHeight - 0,
           behavior: 'smooth',
         })
       }}
