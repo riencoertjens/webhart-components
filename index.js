@@ -5,8 +5,8 @@ import styled from '@emotion/styled'
 
 import facepaint from 'facepaint'
 
-export const pxToRem = (size, baseSize) => {
-  return `${size / baseSize}rem`
+export const pxToRem = size => {
+  return `${size / 16}rem`
 }
 
 export const DefaultPaddingX = '1rem'
@@ -51,19 +51,23 @@ export const ContainerBreakPoints = props =>
   )
 
 export const Section = styled.section`
-  padding: 2rem 0;
+  padding: 3rem 0;
   ${props => props.background && `background: ${props.background};`}
   ${props => props.textAlign && `text-align: ${props.textAlign};`}
-`
-export const Columns = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
 `
 export const Column = styled.div`
   padding: 0;
   margin: ${DefaultPaddingY} ${DefaultPaddingX};
-  flex: 1 1 300px;
+  ${props => props.width && `flex-base: ${props.width}`};
+`
+
+export const Columns = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  ${Column} {
+    flex: 1 1 ${props => props.columnWidth || '300px'};
+  }
 `
 
 export const Container = styled.div`
@@ -75,7 +79,7 @@ export const Container = styled.div`
   }
 `
 
-export const Hero = styled.section`
+export const Hero = styled(Section)`
   position: relative;
   text-align: center;
   display: flex;
@@ -101,7 +105,7 @@ export const ScrollArrow = () => {
         width: 20px;
         height: 20px;
         z-index: 2;
-        bottom: 30px;
+        bottom: 50px;
         transform: rotate(45deg);
         cursor: pointer;
         border: solid black;
