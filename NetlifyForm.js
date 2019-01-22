@@ -12,12 +12,13 @@ class NetlifyForm extends Component {
     for (var pair of formData.entries()) {
       console.log(pair[0] + ', ' + pair[1])
     }
-    fetch('/', {
+    fetch('/?no-cache=1', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: formData,
     })
-      .then(() => {
+      .then(e => {
+        console.log(e)
         this.props.success || alert('form sent')
       })
       .catch(error => {
@@ -46,7 +47,7 @@ class NetlifyForm extends Component {
       >
         <noscript>activate javascript to use this form</noscript>
         <input type="hidden" name="bot-field" />
-        <input type="hidden" name="no-cache" value="true" />
+        <input type="hidden" name="no-cache" value={1} />
         <input type="hidden" name="form-name" value={formName} />
         {children}
         <ButtonComponent>{buttonText || 'send'}</ButtonComponent>
