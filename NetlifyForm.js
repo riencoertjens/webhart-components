@@ -31,7 +31,13 @@ class NetlifyForm extends Component {
   }
 
   render() {
-    const { children, name, buttonComponent, buttonText } = this.props
+    const {
+      children,
+      name,
+      className,
+      buttonComponent,
+      buttonText,
+    } = this.props
     const ButtonComponent = buttonComponent || <button />
     const formName = name || 'basic-form'
     return (
@@ -41,6 +47,7 @@ class NetlifyForm extends Component {
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         onSubmit={this.handleSubmit}
+        className={className}
       >
         <noscript>activate javascript to use this form</noscript>
         <input type="hidden" name="bot-field" />
