@@ -1,34 +1,34 @@
 import React, { Component } from 'react'
 
 class NetlifyForm extends Component {
-  constructor(props) {
-    super(props)
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
+  // constructor(props) {
+  //   super(props)
+  //   this.handleSubmit = this.handleSubmit.bind(this)
+  // }
 
-  handleSubmit = e => {
-    e.preventDefault()
+  // handleSubmit = e => {
+  //   e.preventDefault()
 
-    const formData = new FormData(e.target)
+  //   const formData = new FormData(e.target)
 
-    formData.append('no-cache', true)
+  //   formData.append('no-cache', true)
 
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ', ' + pair[1])
-    }
+  //   for (var pair of formData.entries()) {
+  //     console.log(pair[0] + ', ' + pair[1])
+  //   }
 
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: formData,
-    })
-      .then(() => {
-        this.props.success || alert('form sent')
-      })
-      .catch(error => {
-        this.props.error || alert(error)
-      })
-  }
+  //   fetch('/', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //     body: formData,
+  //   })
+  //     .then(() => {
+  //       this.props.success || alert('form sent')
+  //     })
+  //     .catch(error => {
+  //       this.props.error || alert(error)
+  //     })
+  // }
 
   render() {
     const {
