@@ -7,22 +7,22 @@ class NetlifyForm extends Component {
   }
 
   handleSubmit = e => {
-    // e.preventDefault()
-    // const formData = new FormData(e.target)
-    // for (var pair of formData.entries()) {
-    //   console.log(pair[0] + ', ' + pair[1])
-    // }
-    // fetch('/', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    //   body: formData,
-    // })
-    //   .then(() => {
-    //     this.props.success || alert('form sent')
-    //   })
-    //   .catch(error => {
-    //     this.props.error || alert(error)
-    //   })
+    e.preventDefault()
+    const formData = new FormData(e.target)
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ', ' + pair[1])
+    }
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formData,
+    })
+      .then(() => {
+        this.props.success || alert('form sent')
+      })
+      .catch(error => {
+        this.props.error || alert(error)
+      })
   }
 
   render() {
@@ -41,7 +41,7 @@ class NetlifyForm extends Component {
         method="post"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        // onSubmit={this.handleSubmit}
+        onSubmit={this.handleSubmit}
         className={className}
       >
         <noscript>activate javascript to use this form</noscript>
