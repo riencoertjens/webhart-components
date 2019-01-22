@@ -9,10 +9,12 @@ class NetlifyForm extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const formData = new FormData(e.target)
+    formData.append('no-cache', true)
+
     for (var pair of formData.entries()) {
       console.log(pair[0] + ', ' + pair[1])
     }
-    fetch('/?no-cache=1', {
+    fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: formData,
