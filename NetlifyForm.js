@@ -8,7 +8,9 @@ class NetlifyForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
+
     const formData = new FormData(e.target)
+
     formData.append('no-cache', true)
 
     fetch('/', {
@@ -16,8 +18,7 @@ class NetlifyForm extends Component {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: formData,
     })
-      .then(e => {
-        console.log(e)
+      .then(() => {
         this.props.success || alert('form sent')
       })
       .catch(error => {
