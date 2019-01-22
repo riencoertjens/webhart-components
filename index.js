@@ -112,6 +112,8 @@ export const ScrollArrow = () => {
         border-width: 0 2px 2px 0;
         background: transparent;
         transition: 0.2s;
+        padding: 0;
+        margin: 0;
         &:hover {
           transform: translateY(5px) rotate(45deg);
         }
