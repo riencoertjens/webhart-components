@@ -46,12 +46,11 @@ class NetlifyForm extends Component {
         method="post"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        onSubmit={this.handleSubmit}
+        // onSubmit={this.handleSubmit}
         className={className}
       >
         <noscript>activate javascript to use this form</noscript>
         <input type="hidden" name="bot-field" />
-        {/* <input type="hidden" name="no-cache" value={1} /> */}
         <input type="hidden" name="form-name" value={formName} />
         {children}
         <ButtonComponent>{buttonText || 'send'}</ButtonComponent>
