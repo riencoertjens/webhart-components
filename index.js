@@ -5,13 +5,18 @@ import styled from '@emotion/styled'
 
 import facepaint from 'facepaint'
 
-export const pxToRem = size => {
-  return `${size / 16}rem`
-}
+export const lineHeight = '1.5'
+export const spacing = '1.5'
 
 export const DefaultPaddingX = '1rem'
 export const DefaultPaddingY = 0
+
 export const BreakPoints = ['600px', '900px', '1200px', '1800px']
+export const baseFontSize = ['14px', '16px', '16px', '16px', '18px']
+
+export const pxToRem = size => {
+  return `${size / 16}rem`
+}
 
 export const breakpoints = {
   narrow: ['100%', BreakPoints[0], BreakPoints[0], BreakPoints[0]],
