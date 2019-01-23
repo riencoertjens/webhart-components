@@ -94,35 +94,43 @@ export const Hero = styled(Section)`
   min-height: ${props => (props.height ? props.height : 100)}vh;
 `
 
-export const ScrollArrow = () => {
+export const ScrollArrow = ({ label, style }) => {
   return (
-    <button
-      onClick={() => {
-        window.scrollTo({
-          top: window.innerHeight - 0,
-          behavior: 'smooth',
-        })
-      }}
-      aria-label="scroll down"
+    <div
       css={css`
-        display: block;
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        z-index: 2;
-        bottom: 50px;
-        transform: rotate(45deg);
-        cursor: pointer;
-        border: solid black;
-        border-width: 0 2px 2px 0;
-        background: transparent;
-        transition: 0.2s;
-        padding: 0;
-        margin: 0;
-        &:hover {
-          transform: translateY(5px) rotate(45deg);
-        }
+        ${style && style}
+        padding-bottom: 10px;
       `}
-    />
+    >
+      {label && <span>{label}</span>}
+      <button
+        onClick={() => {
+          window.scrollTo({
+            top: window.innerHeight - 0,
+            behavior: 'smooth',
+          })
+        }}
+        aria-label="scroll down"
+        css={css`
+          display: block;
+          /* position: absolute; */
+          width: 20px;
+          height: 20px;
+          z-index: 2;
+          /* bottom: 50px; */
+          transform: rotate(45deg);
+          cursor: pointer;
+          border: solid black;
+          border-width: 0 2px 2px 0;
+          background: transparent;
+          transition: 0.2s;
+          padding: 0;
+          margin: 0 auto;
+          &:hover {
+            transform: translateY(5px) rotate(45deg);
+          }
+        `}
+      />
+    </div>
   )
 }
