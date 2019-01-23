@@ -37,6 +37,7 @@ class NetlifyForm extends Component {
       className,
       buttonComponent,
       buttonText,
+      succesPage,
     } = this.props
     const ButtonComponent = buttonComponent || <button />
     const formName = name || 'basic-form'
@@ -47,6 +48,7 @@ class NetlifyForm extends Component {
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         // onSubmit={this.handleSubmit}
+        action={succesPage && succesPage}
         className={className}
       >
         <noscript>activate javascript to use this form</noscript>
