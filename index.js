@@ -11,7 +11,7 @@ export const spacing = '1.5'
 export const DefaultPaddingX = '1rem'
 export const DefaultPaddingY = 0
 
-export const BreakPoints = ['600px', '900px', '1200px', '1500px']
+export const BreakPoints = ['600px', '900px', '1200px', '1600px']
 export const baseFontSize = ['14px', '16px', '16px', '16px', '18px']
 
 export const pxToRem = size => {
