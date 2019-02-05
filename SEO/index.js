@@ -53,7 +53,7 @@ const SEO = ({
       const seo = {
         title: title || defaultTitle,
         description: description || defaultDescription,
-        image: `${siteUrl}/${image || defaultImage}`,
+        image: `${siteUrl}${image || defaultImage}`,
         url: `${siteUrl}${pathname || '/'}`,
         author: author || defaultAuthor,
       }
@@ -106,3 +106,13 @@ SEO.propTypes = {
 }
 
 export default SEO
+
+export const SEOImageFragment = graphql`
+  fragment SEOImageFragment on File {
+    childImageSharp {
+      SEO: fixed(width: 1200, height: 630, cropFocus: NORTH) {
+        src
+      }
+    }
+  }
+`

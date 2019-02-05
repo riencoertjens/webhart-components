@@ -5,6 +5,8 @@ import styled from '@emotion/styled'
 
 import facepaint from 'facepaint'
 
+import { OutboundLink as AnalyticsOutboundLink } from 'gatsby-plugin-google-analytics'
+
 export const lineHeight = '1.5'
 export const spacing = '1.5'
 
@@ -101,10 +103,10 @@ export const Hero = styled(Section)`
 `
 
 export const OutboundLink = props => (
-  <OutboundLink aria-label="instagram" target="_blank" {...props} />
+  <AnalyticsOutboundLink aria-label="instagram" target="_blank" {...props} />
 )
 
-export const ScrollArrow = ({ label, style }) => {
+export const ScrollArrow = ({ label, style, headerSize }) => {
   return (
     <div
       css={css`
@@ -116,7 +118,7 @@ export const ScrollArrow = ({ label, style }) => {
       <button
         onClick={() => {
           window.scrollTo({
-            top: window.innerHeight - 0,
+            top: window.innerHeight - (headerSize || 0),
             behavior: 'smooth',
           })
         }}
