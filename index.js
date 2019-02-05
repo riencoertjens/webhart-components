@@ -5,16 +5,20 @@ import styled from '@emotion/styled'
 
 import facepaint from 'facepaint'
 
-import { OutboundLink as AnalyticsOutboundLink } from 'gatsby-plugin-google-analytics'
+import normalize from './normalize'
 
-export const lineHeight = '1.5'
-export const spacing = '1.5'
-
-export const DefaultPaddingX = '1rem'
-export const DefaultPaddingY = 0
-
-export const BreakPoints = ['600px', '900px', '1200px', '1600px']
-export const baseFontSize = ['14px', '16px', '16px', '16px', '18px']
+import {
+  baseFontSize,
+  lineHeight,
+  spacing,
+  DefaultPaddingX,
+  DefaultPaddingY,
+  BreakPoints,
+  siteGlobalStyle,
+  useTypography,
+  responsiveFontSizes,
+  fontFamilies,
+} from '../../site/styles'
 
 export const pxToRem = size => {
   return `${size / 16}rem`
@@ -63,6 +67,56 @@ export const ContainerBreakPoints = props =>
     })
   )
 
+export const globalStyle = useTypography
+  ? css`
+      html {
+        ${mediaQueries({
+          fontSize: responsiveFontSizes,
+        })}
+      }
+      ${siteGlobalStyle}
+    `
+  : css`
+  ${normalize}
+  html {
+    box-sizing: border-box;
+    font-size: ${(baseFontSize / 16) * 100}%; // 100% = 16px
+    ${mediaQueries({
+      fontSize: responsiveFontSizes,
+    })}
+    line-height: ${lineHeight}em;
+    font-family: ${fontFamilies.body}, sans-serif;
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: ${fontFamilies.title};
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: ${lineHeight};
+    margin-top: 0;
+    margin-bottom: ${spacing}rem;
+  }
+
+  ${siteGlobalStyle}
+`
+
 export const Section = styled.section`
   padding: 3rem 0;
   ${props => props.background && `background: ${props.background};`}
@@ -102,11 +156,7 @@ export const Hero = styled(Section)`
   min-height: ${props => (props.height ? props.height : 100)}vh;
 `
 
-export const OutboundLink = props => (
-  <AnalyticsOutboundLink aria-label="instagram" target="_blank" {...props} />
-)
-
-export const ScrollArrow = ({ label, style, headerSize }) => {
+export const ScrollArrow = ({ label, style }) => {
   return (
     <div
       css={css`
@@ -118,7 +168,7 @@ export const ScrollArrow = ({ label, style, headerSize }) => {
       <button
         onClick={() => {
           window.scrollTo({
-            top: window.innerHeight - (headerSize || 0),
+            top: window.innerHeight - 0,
             behavior: 'smooth',
           })
         }}
