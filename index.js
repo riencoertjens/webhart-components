@@ -85,6 +85,11 @@ export const globalStyle = useTypography
   : css`
   ${normalize}
   html {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    
     box-sizing: border-box;
     font-size: ${(baseFontSize / 16) * 100}%; // 100% = 16px
     ${mediaQueries({
