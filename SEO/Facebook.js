@@ -15,6 +15,8 @@ export default ({
     {title && <meta property="og:title" content={title} />}
     {description && <meta property="og:description" content={description} />}
     {image && <meta property="og:image" content={image} />}
+    {image && <meta property="og:image:width" content="1200" />}
+    {image && <meta property="og:image:height" content="630" />}
     {appID && <meta property="fb:app_id" content={appID} />}
   </Helmet>
 )
