@@ -27,7 +27,7 @@ export const pxToRem = size => {
 }
 
 export const OutboundLink = props => (
-  <AnalyticsOutboundLink aria-label="instagram" target="_blank" {...props} />
+  <AnalyticsOutboundLink target="_blank" rel="noreferrer noopener" {...props} />
 )
 
 export const breakpoints = {
