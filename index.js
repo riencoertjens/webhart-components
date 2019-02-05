@@ -100,6 +100,10 @@ export const Hero = styled(Section)`
   min-height: ${props => (props.height ? props.height : 100)}vh;
 `
 
+export const OutboundLink = props => (
+  <OutboundLink aria-label="instagram" target="_blank" {...props} />
+)
+
 export const ScrollArrow = ({ label, style }) => {
   return (
     <div
