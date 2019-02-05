@@ -3,6 +3,8 @@ import React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
+import { OutboundLink as AnalyticsOutboundLink } from 'gatsby-plugin-google-analytics'
+
 import facepaint from 'facepaint'
 
 import normalize from './normalize'
@@ -23,6 +25,10 @@ import {
 export const pxToRem = size => {
   return `${size / 16}rem`
 }
+
+export const OutboundLink = props => (
+  <AnalyticsOutboundLink aria-label="instagram" target="_blank" {...props} />
+)
 
 export const breakpoints = {
   narrow: ['100%', BreakPoints[0], BreakPoints[0], BreakPoints[0]],
