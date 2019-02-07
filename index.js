@@ -22,6 +22,9 @@ import {
   fonts,
 } from '../../site/styles'
 
+import { pxToRem, getFonts } from './functions'
+export { pxToRem, getFonts }
+
 export const OutboundLink = props => (
   <AnalyticsOutboundLink target="_blank" rel="noreferrer noopener" {...props} />
 )
