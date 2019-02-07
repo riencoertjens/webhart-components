@@ -16,15 +16,11 @@ import {
   DefaultPaddingX,
   DefaultPaddingY,
   BreakPoints,
-  siteGlobalStyle,
+  globalStyle as siteGlobalStyle,
   useTypography,
   responsiveFontSizes,
-  fontFamilies,
+  fonts,
 } from '../../site/styles'
-
-export const pxToRem = size => {
-  return `${size / 16}rem`
-}
 
 export const OutboundLink = props => (
   <AnalyticsOutboundLink target="_blank" rel="noreferrer noopener" {...props} />
@@ -96,7 +92,7 @@ export const globalStyle = useTypography
       fontSize: responsiveFontSizes,
     })}
     line-height: ${lineHeight}em;
-    font-family: ${fontFamilies.body}, sans-serif;
+    font-family: ${fonts.body}, sans-serif;
   }
   *,
   *:before,
@@ -110,7 +106,7 @@ export const globalStyle = useTypography
   h4,
   h5,
   h6 {
-    font-family: ${fontFamilies.title};
+    font-family: ${fonts.title};
   }
 
   p,
