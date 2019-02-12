@@ -22,6 +22,10 @@ import {
   fonts,
 } from '../../site/styles'
 
+import { FaInstagram as InstagramIcon } from 'react-icons/fa'
+import { FaTwitter as TwitterIcon } from 'react-icons/fa'
+import { FaFacebookF as FacebookIcon } from 'react-icons/fa'
+
 import { pxToRem, getFonts } from './functions'
 export { pxToRem, getFonts }
 
@@ -166,7 +170,7 @@ export const Hero = styled(Section)`
   min-height: ${props => (props.height ? props.height : 100)}vh;
 `
 
-export const ScrollArrow = ({ label, style }) => {
+export const ScrollArrow = ({ label, style, color }) => {
   return (
     <div
       css={css`
@@ -192,7 +196,7 @@ export const ScrollArrow = ({ label, style }) => {
           /* bottom: 50px; */
           transform: rotate(45deg);
           cursor: pointer;
-          border: solid black;
+          border: solid ${color || 'black'};
           border-width: 0 2px 2px 0;
           background: transparent;
           transition: 0.2s;
@@ -206,3 +210,33 @@ export const ScrollArrow = ({ label, style }) => {
     </div>
   )
 }
+
+export const SocialLinks = ({ instagram, facebook, twitter, style }) => (
+  <>
+    {instagram && (
+      <OutboundLink
+        aria-label="instagram"
+        href={`https://instagram.com/${instagram}`}
+        css={style}
+      >
+        <InstagramIcon />
+      </OutboundLink>
+    )}
+    {twitter && (
+      <OutboundLink
+        aria-label="twitter"
+        href={`https://twitter.com/${twitter}`}
+      >
+        <TwitterIcon />
+      </OutboundLink>
+    )}
+    {facebook && (
+      <OutboundLink
+        aria-label="facebook"
+        href={`https://facebook.com/${facebook}`}
+      >
+        <FacebookIcon />
+      </OutboundLink>
+    )}
+  </>
+)
