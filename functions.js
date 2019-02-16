@@ -1,7 +1,7 @@
 export const getFonts = fonts => {
   let fontFamilies = {}
-  Object.keys(fonts).map(key => {
-    fontFamilies[key] = fonts[key].join(', ')
+  Object.keys(fonts).forEach(font => {
+    fontFamilies[font] = fonts[font].join(', ')
   })
   return fontFamilies
 }
