@@ -18,7 +18,7 @@ export const animations = {
         border-color: transparent;
       }
       50% {
-        border-color: red;//${color};
+        border-color: ${color};
       }
     `,
 }
