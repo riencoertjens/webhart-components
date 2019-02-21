@@ -19,7 +19,7 @@ import {
   globalStyle as siteGlobalStyle,
   useTypography,
   responsiveFontSizes,
-  fonts,
+  fontFamilies as fonts,
 } from '../../site/styles'
 
 import { FaInstagram as InstagramIcon } from 'react-icons/fa'

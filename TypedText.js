@@ -1,13 +1,27 @@
 import React, { Component } from 'react'
-import styled from 'react-emotion'
-import { colors, animations } from '../webhart-base/utils/style'
+import { keyframes, css } from '@emotion/core'
 
-const Wrapper = styled('span')`
-  color: ${colors.red};
-  border-right: 1px solid ${colors.red};
-  animation: ${animations.blinkCaret} 0.75s step-end infinite;
-  margin-right: 0;
-`
+export const animations = {
+  /* The typing effect */
+  typing: keyframes`
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    `,
+  /* The typewriter cursor effect */
+  blinkCaret: ({ color }) => keyframes`
+      from,
+      to {
+        border-color: transparent;
+      }
+      50% {
+        border-color: red;//${color};
+      }
+    `,
+}
 
 class TypedText extends Component {
   constructor(props) {
@@ -34,14 +48,14 @@ class TypedText extends Component {
       newCurrentItemText = currentItem.substr(0, currentItemText.length + 1)
     }
 
-    if (currentItemText == newCurrentItemText) {
+    if (currentItemText === newCurrentItemText) {
       deleting = true
       delay = 1000
     }
 
-    if (deleting && currentItemText.length == 0) {
+    if (deleting && currentItemText.length === 0) {
       currentItemIndex =
-        currentItemIndex + 1 == children.length ? 0 : currentItemIndex + 1
+        currentItemIndex + 1 === children.length ? 0 : currentItemIndex + 1
       delay = 500
       currentItem = children[currentItemIndex]
       deleting = false
@@ -61,7 +75,19 @@ class TypedText extends Component {
     clearTimeout(this.timeOut)
   }
   render() {
-    return <Wrapper>{this.state.currentItemText}</Wrapper>
+    return (
+      <span
+        css={css`
+          color: ${this.props.color};
+          border-right: 1px solid ${this.props.color};
+          animation: ${animations.blinkCaret({ color: this.props.color })} 0.75s
+            step-end infinite;
+          margin-right: 0;
+        `}
+      >
+        {this.state.currentItemText}
+      </span>
+    )
   }
 }
 
