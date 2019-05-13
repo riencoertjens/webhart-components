@@ -9,3 +9,10 @@ export const getFonts = fonts => {
 export const pxToRem = size => {
   return `${size / 16}rem`
 }
+
+export const minWidthPadding = minWidth => {
+  return `@media (max-width: ${minWidth}) {
+    padding-left: ${pxToRem(10)};
+    padding-right: ${pxToRem(10)};
+  }`
+}
