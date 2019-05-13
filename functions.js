@@ -11,7 +11,7 @@ export const pxToRem = size => {
 }
 
 export const minWidthPadding = minWidth => {
-  return `@media (max-width: ${minWidth}) {
+  return `@media (max-width:  ${minWidth}) {
     padding-left: ${pxToRem(10)};
     padding-right: ${pxToRem(10)};
   }`
